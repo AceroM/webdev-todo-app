@@ -1,0 +1,48 @@
+{% extends "template.html" %}
+{% block content %}
+<div class="section">
+    <div class="container">
+        <h1> Todo List</h1>
+    </div>
+</div>
+
+<div class="section">
+    <div class="container">
+        <div class="row">
+            {% if user %}
+            <h3> Hey, {{user}}</h3>
+            {% endif %}
+            <a class="button" href="/create">Add todo</a>
+            <a class="button button-primary" href="/logoff">Log-Off</a>
+        </div>
+    </div>
+</div>
+
+<div class="section">
+    <div class="container">
+        {% if status %}
+        <h4>{{status}}</h4>
+        {% endif %}
+        <div class="row">
+            <ul>
+                {% for todo in todos %}
+                <li>
+                    {% if todo['completed']%}
+                    {{todo['id']}} - {{todo['content']}} | Completed
+                    <a href="{{ '/todos/notcomplete/%s'%todo.id }}"> Mark Not Complete </a>
+                    {% else %}
+                    {{todo['id']}} - {{todo['content']}} | Not Complete
+                    <a href="{{ '/todos/complete/%s'%todo.id }}"> Mark Complete </a>
+                    {% endif %}
+                    <br />
+                    <a href="{{ '/todos/delete/%s'%todo.id }}"> Delete </a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+
+</div>
+
+{% endblock %}

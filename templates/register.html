@@ -1,0 +1,20 @@
+{% extends "template.html" %}
+{% block content %}
+<div class="container">
+    <form method="POST">
+
+        <div class="row">
+            <h2>Todo Application Registration</h2>
+            <h3>{{error}}</h3>
+            <div class="twelve columns">
+                <h6>Name:</h6>
+                <input name="name" type="name" placeholder="John Doeeee">
+            </div>
+        </div>
+
+        <div class="row">
+            <input type="submit" name="submit" value="register">
+        </div>
+    </form>
+</div>
+{% endblock %}

@@ -1,2 +1,4 @@
-# webdev-todo-app
-todo app using flask 
+# Todo app
+
+todo app for practical web development class
+
